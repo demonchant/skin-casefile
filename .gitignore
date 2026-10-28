@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+/HACKATHON_BUILD_STANDARD_V2.md
+/HACKATHON_REBUILD_PLAYBOOK.md
+/.repo-meta/
+node_modules/
+coverage/
+playwright-report/
+test-results/
+*.log
+.DS_Store
+Thumbs.db
+

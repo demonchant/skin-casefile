@@ -1,0 +1,44 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      HOST: 0.0.0.0
+      PORT: 3000
+      YOUCAM_API_KEY: ${YOUCAM_API_KEY:-}
+    ports:
+      - "127.0.0.1:3000:3000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/api/status').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 3s
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,noexec,nosuid
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    init: true
+
+  browser-tests:
+    profiles: ["test"]
+    build:
+      context: .
+      dockerfile: Dockerfile.playwright
+    depends_on:
+      app:
+        condition: service_healthy
+    environment:
+      PLAYWRIGHT_BASE_URL: http://app:3000
+      CI: "true"
+    command: ["npm", "run", "test:e2e"]
+    init: true
+    shm_size: 1gb
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true

@@ -1,0 +1,18 @@
+{
+  "name": "skin-casefile",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A consumer skin-event record built around real YouCam Skin Analysis results.",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "test": "node src/run-tests.js",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1"
+  },
+  "engines": {
+    "node": ">=22.9"
+  }
+}
