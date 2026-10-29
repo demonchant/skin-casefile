@@ -11,7 +11,7 @@ Skin Casefile is not a diagnostic tool or treatment recommender. Measurements do
 - Live web app: [skin-casefile.onrender.com](https://skin-casefile.onrender.com/)
 - Landing page: `/`
 - Casebook: `/dashboard`
-- Public demo video: [YouTube](https://youtu.be/CITNpW-76z8) (62 seconds; link supplied by the project owner, not independently fetched by this environment)
+- Public demo video: [YouTube](https://youtu.be/CITNpW-76z8) 
 - Repository: https://github.com/demonchant/skin-casefile
 
 The app currently stores notes and returned measurements in browser local storage on that device. There is no account sync, cloud backup, or cross-device recovery.
