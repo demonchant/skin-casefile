@@ -26,7 +26,7 @@ The app currently stores notes and returned measurements in browser local storag
 
 ## Screenshots
 
-These are genuine frames from the recorded browser demo.
+These are genuine frames from the recorded browser demo. The result and timeline captures show the raw score values from that recording; the current interface prefers YouCam's user-facing score and labels the 1–100 scale.
 
 | Landing page | Casebook dashboard |
 | --- | --- |
@@ -41,6 +41,10 @@ These are genuine frames from the recorded browser demo.
 The Node server authenticates with `YOUCAM_API_KEY` and calls the YouCam File API and asynchronous Skin Analysis API. After consent, the browser sends the selected image to the app server; the server obtains an upload URL, uploads the image to the signed destination, creates an analysis task, polls for completion, validates the provider response, and returns the readings. The app does not retain the photo. Provider image retention is governed by YouCam's terms and policy.
 
 The API key remains server-side. The separate API secret is not used by this implementation. A scan consumes API units when successful. Live provider availability and results depend on a valid YouCam account and API key.
+
+### How to read a score
+
+Each feature score summarizes YouCam's photo analysis of acne presence, redness, hydration, or oiliness. Values use YouCam's 1–100 scale, not percentages. Skin Casefile displays YouCam's integer `ui_score` when available. YouCam describes that as a user-facing value adjusted from its raw analysis for consumer presentation; its documentation says higher values are more favorable within its model. If an older or partial result has no `ui_score`, Skin Casefile shows the raw score rounded to one decimal and labels it. These image based scores are not clinical severity ratings or diagnoses. Lighting, angle, and distance can affect a reading; a difference between readings alone does not explain cause or prove a routine had an effect. Comparisons are withheld if the two entries use different score fields. See [YouCam's score definitions](https://docs.perfectcorp.com/reference/ai_skin_analysis/v2.1).
 
 ## Run locally
 

@@ -26,3 +26,7 @@ test('parser rejects a successful task with no requested score data', () => {
 test('parser does not treat missing or null scores as numeric zero', () => {
   assert.throws(() => parseSkinResult({ results: { output: [{ type: 'acne', raw_score: null, ui_score: null }] } }), (error) => error.code === 'INVALID_RESULT');
 });
+
+test('parser only accepts values within YouCam documented score range', () => {
+  assert.throws(() => parseSkinResult({ results: { output: [{ type: 'redness', raw_score: 0, ui_score: 101 }] } }), (error) => error.code === 'INVALID_RESULT');
+});

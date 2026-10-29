@@ -1,3 +1,5 @@
+import { displayedScore, formatScore } from './score-display.js';
+
 const STORAGE_KEY = 'skin-casefile.records.v1';
 const labels = { acne: 'Acne', redness: 'Redness', moisture: 'Moisture', oiliness: 'Oiliness' };
 const elements = Object.fromEntries([
@@ -62,15 +64,21 @@ function render() {
   elements.scanCount.textContent = `${selected.entries.length} ${selected.entries.length === 1 ? 'reading' : 'readings'}`;
   elements.latestScores.innerHTML = latest.scores.map((score) => {
     const prior = previous?.scores.find((item) => item.type === score.type);
-    const currentValue = score.rawScore ?? score.uiScore;
-    const priorValue = prior ? (prior.rawScore ?? prior.uiScore) : null;
-    const delta = Number.isFinite(currentValue) && Number.isFinite(priorValue) ? currentValue - priorValue : null;
-    const change = delta === null ? 'First reading' : `${delta > 0 ? '+' : ''}${delta.toFixed(1)} points`;
-    return `<div class="score-card"><span class="score-name">${escapeHtml(labels[score.type] ?? score.type)}</span><span class="score-value">${currentValue === null ? '—' : escapeHtml(currentValue)}</span><span class="score-change ${delta === null ? 'change-first' : ''}">${escapeHtml(change)}</span></div>`;
+    const currentReading = displayedScore(score);
+    const priorReading = prior ? displayedScore(prior) : null;
+    const comparable = currentReading && priorReading && currentReading.kind === priorReading.kind;
+    const delta = comparable ? currentReading.value - priorReading.value : null;
+    const change = !previous ? 'First reading' : !prior ? 'Not returned before' : !comparable ? 'Comparison unavailable' : `${delta > 0 ? '+' : ''}${delta} points vs previous`;
+    const kindLabel = currentReading?.kind === 'raw' ? 'Raw score' : 'UI score';
+    return `<div class="score-card"><span class="score-name">${escapeHtml(labels[score.type] ?? score.type)}</span><span class="score-value">${escapeHtml(formatScore(currentReading))}</span><span class="score-unit">${currentReading ? `${kindLabel} · /100` : 'score unavailable'}</span><span class="score-change ${!comparable ? 'change-first' : ''}">${escapeHtml(change)}</span></div>`;
   }).join('');
   elements.timeline.innerHTML = [...selected.entries].reverse().map((entry, reverseIndex) => {
     const ordinal = selected.entries.length - reverseIndex;
-    const scoreLines = entry.scores.map((score) => `<span class="timeline-score"><b>${escapeHtml(labels[score.type] ?? score.type)}</b> ${escapeHtml(score.rawScore ?? score.uiScore ?? '—')}</span>`).join('');
+    const scoreLines = entry.scores.map((score) => {
+      const reading = displayedScore(score);
+      const source = reading?.kind === 'raw' ? 'raw' : 'UI';
+      return `<span class="timeline-score"><b>${escapeHtml(labels[score.type] ?? score.type)}</b> ${escapeHtml(formatScore(reading))}<small>${reading ? `${source} · /100` : ''}</small></span>`;
+    }).join('');
     return `<article class="timeline-entry"><div class="timeline-rail"><span class="timeline-point"></span>${reverseIndex < selected.entries.length - 1 ? '<span class="timeline-line"></span>' : ''}</div><div class="timeline-content"><div class="timeline-heading"><span class="timeline-step">ENTRY ${String(ordinal).padStart(2, '0')}</span><time datetime="${escapeHtml(entry.createdAt)}">${formatDate(entry.createdAt)}</time></div><div class="timeline-scores">${scoreLines}</div>${entry.product ? `<p class="timeline-product"><span aria-hidden="true">◈</span> Product / routine: <strong>${escapeHtml(entry.product)}</strong></p>` : ''}${entry.note ? `<p class="timeline-note">${escapeHtml(entry.note)}</p>` : ''}</div></article>`;
   }).join('');
   elements.caseList.querySelectorAll('[data-case-id]').forEach((button) => button.addEventListener('click', () => { activeId = button.dataset.caseId; render(); }));

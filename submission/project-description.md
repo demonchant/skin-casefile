@@ -8,6 +8,8 @@ Skin Casefile addresses the gap between a one-time skin score and the context pe
 
 **YouCam APIs:** YouCam File API and Skin Analysis API. The API key is held by the server. Images are sent to YouCam only after consent and are not retained by the app. Provider processing and retention remain subject to YouCam's terms and privacy policy.
 
+**Score scale:** The feature readings summarize YouCam's photo analysis of acne presence, redness, hydration, and oiliness. They use YouCam's 1–100 scale, not percentages. Skin Casefile displays YouCam's user-facing `ui_score` when available, or labels a raw score rounded to one decimal when that field is absent. YouCam describes the UI score as adjusted from raw analysis for consumer presentation and says higher values are more favorable in its scoring model. These photo-based estimates are not clinical severity ratings or diagnoses. Lighting and framing can affect them; a score change alone does not explain cause or demonstrate a product effect. [YouCam's score definitions](https://docs.perfectcorp.com/reference/ai_skin_analysis/v2.1).
+
 **Data model and limits:** notes and returned measurements stay in browser local storage on the device. There is no Google authentication, cloud sync, or cross-device recovery. A new browser has a real empty state. An unavailable provider or failed scan is shown as a failure; it does not create fake results.
 
 **Demo:** [Watch Skin Casefile on YouTube](https://youtu.be/CITNpW-76z8). The 1:02 video demonstrates the browser product, consented analysis, returned readings, a follow-up timeline, and print summary. The public URL was supplied by the project owner; external playback could not be verified by this environment.

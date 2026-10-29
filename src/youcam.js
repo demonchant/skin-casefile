@@ -117,8 +117,10 @@ export function parseSkinResult(data) {
     if (!allowed.has(type)) return [];
     const raw = item.raw_score;
     const ui = item.ui_score;
-    const rawScore = raw !== null && raw !== undefined && raw !== '' && Number.isFinite(Number(raw)) ? Number(raw) : null;
-    const uiScore = ui !== null && ui !== undefined && ui !== '' && Number.isFinite(Number(ui)) ? Number(ui) : null;
+    const rawNumber = raw !== null && raw !== undefined && raw !== '' && Number.isFinite(Number(raw)) ? Number(raw) : null;
+    const uiNumber = ui !== null && ui !== undefined && ui !== '' && Number.isFinite(Number(ui)) ? Number(ui) : null;
+    const rawScore = rawNumber !== null && rawNumber >= 1 && rawNumber <= 100 ? rawNumber : null;
+    const uiScore = uiNumber !== null && Number.isInteger(uiNumber) && uiNumber >= 1 && uiNumber <= 100 ? uiNumber : null;
     if (rawScore === null && uiScore === null) return [];
     return [{ type, rawScore, uiScore }];
   });

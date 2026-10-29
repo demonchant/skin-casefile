@@ -65,9 +65,9 @@
 
             <div class="case-context" id="caseContext"></div>
             <div class="measure-heading"><div><p class="section-kicker">YOUCAM SKIN ANALYSIS</p><h3>Measurements over time</h3></div><span id="scanCount" class="count-pill"></span></div>
-            <p class="measure-caption">Provider scores are shown as returned. A change in score alone does not explain why it happened.</p>
-            <div id="latestScores" class="score-grid"></div>
-            <div id="timeline" class="timeline"></div>
+            <p class="measure-caption" id="scoreExplanation">These scores summarize YouCam's photo analysis of acne presence, redness, hydration, and oiliness. Values use YouCam's 1–100 scale, not percentages. We show its user facing score when available; YouCam adjusts that value from raw analysis for consumer presentation. Higher scores are more favorable within its model. These are not clinical severity ratings or diagnoses. Photo conditions can affect comparisons, and a change alone does not show cause or treatment effect. <a href="https://docs.perfectcorp.com/reference/ai_skin_analysis/v2.1" target="_blank" rel="noopener noreferrer">How YouCam defines its scores</a>.</p>
+            <div id="latestScores" class="score-grid" aria-describedby="scoreExplanation"></div>
+            <div id="timeline" class="timeline" aria-describedby="scoreExplanation"></div>
 
             <section class="followup-card" aria-labelledby="followupTitle">
               <div class="followup-copy"><div class="followup-symbol" aria-hidden="true">↗</div><div><p class="section-kicker">ADD TO THIS RECORD</p><h3 id="followupTitle">A follow-up scan</h3><p>Use a similar angle and lighting when you can. Your original photo is not kept by this app.</p></div></div>
@@ -120,7 +120,8 @@
       <div class="dialog-form"><div class="dialog-top"><div><p class="section-kicker">BEFORE YOU SCAN</p><h2>Privacy & limits</h2></div><button id="closePrivacyButton" class="icon-button close-button" type="button" aria-label="Close">×</button></div>
         <div class="privacy-block"><span class="privacy-index">01</span><div><h3>Your photo</h3><p>A scan sends the selected image to Perfect Corp / YouCam. Skin Casefile does not save the photo. YouCam processes it under its terms and privacy policy.</p></div></div>
         <div class="privacy-block"><span class="privacy-index">02</span><div><h3>Your record</h3><p>Returned score values and the notes you type are saved in this browser's local storage. They are not uploaded to an account or backed up. Delete an individual case here or clear site data to remove everything.</p></div></div>
-        <div class="privacy-block"><span class="privacy-index">03</span><div><h3>What a score means</h3><p>A photo-based score is one observation. Lighting, distance, angle, and other factors can change it. Score movement is not proof that a product caused an effect, and this app does not diagnose or recommend treatment.</p></div></div>
+        <div class="privacy-block"><span class="privacy-index">03</span><div><h3>What a score means</h3><p>These values summarize YouCam's photo analysis of acne presence, redness, hydration, and oiliness. YouCam's user facing score runs from 1 to 100 and is adjusted from raw analysis for consumer presentation. Higher values are more favorable within its model. Scores are not percentages, clinical severity ratings, or diagnoses. Lighting, distance, and angle can change results. A difference alone cannot show cause or treatment effect.</p></div></div>
+        <a class="policy-link" href="https://docs.perfectcorp.com/reference/ai_skin_analysis/v2.1" target="_blank" rel="noopener noreferrer">Read YouCam's score definitions <span aria-hidden="true">↗</span></a>
         <a class="policy-link" href="https://www.perfectcorp.com/de/perfectbeauty/youcam/privacy-policy-api" target="_blank" rel="noreferrer">Read YouCam API privacy policy <span aria-hidden="true">↗</span></a>
       </div>
     </dialog>
