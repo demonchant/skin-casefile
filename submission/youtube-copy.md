@@ -12,6 +12,8 @@ This demo shows the concern-record flow, consented photo analysis through YouCam
 
 Project repository: https://github.com/demonchant/skin-casefile
 
+Try the live app: https://skin-casefile.onrender.com/
+
 #SkinCasefile #YouCamAPI #SkinAI #Hackathon
 
 ## Public video URL

@@ -8,6 +8,7 @@ Skin Casefile is not a diagnostic tool or treatment recommender. Measurements do
 
 ## Try the project
 
+- Live web app: [skin-casefile.onrender.com](https://skin-casefile.onrender.com/)
 - Landing page: `/`
 - Casebook: `/dashboard`
 - Public demo video: [YouTube](https://youtu.be/CITNpW-76z8) (62 seconds; link supplied by the project owner, not independently fetched by this environment)
@@ -54,7 +55,7 @@ A new browser shows a genuine empty casebook. The project has no mock API fallba
 
 ## Deploy
 
-`render.yaml` configures a Render Node web service. Connect the repository, deploy the Blueprint, and add `YOUCAM_API_KEY` as a Render secret. The app uses the platform `PORT` and exposes `/api/status` as a health check. A deployment URL and live operation are not claimed until a deploy is actually completed and verified. See [deployment notes](submission/deployment-notes.md).
+`render.yaml` configures the Render Node web service. The project owner provided the live app URL above. This environment could not independently verify the deployed site. The service expects `YOUCAM_API_KEY` as a Render secret and exposes `/api/status` as a health check. See [deployment notes](submission/deployment-notes.md).
 
 ## Privacy and limits
 

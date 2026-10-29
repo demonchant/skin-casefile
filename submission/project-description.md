@@ -12,5 +12,7 @@ Skin Casefile addresses the gap between a one-time skin score and the context pe
 
 **Demo:** [Watch Skin Casefile on YouTube](https://youtu.be/CITNpW-76z8). The 1:02 video demonstrates the browser product, consented analysis, returned readings, a follow-up timeline, and print summary. The public URL was supplied by the project owner; external playback could not be verified by this environment.
 
+**Live app:** [https://skin-casefile.onrender.com/](https://skin-casefile.onrender.com/). The URL was supplied by the project owner; this environment could not independently verify the deployed site.
+
 **Repository:** https://github.com/demonchant/skin-casefile
 **License:** MIT, for the repository's original code.
