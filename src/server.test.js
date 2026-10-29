@@ -30,3 +30,28 @@ test('preflight reports missing credentials without exposing a key', async (t) =
   assert.match(body.error, /YOUCAM_API_KEY/);
   assert.doesNotMatch(JSON.stringify(body), /Bearer|sk-[A-Za-z0-9]/i);
 });
+
+test('landing page and dashboard are separate direct routes', async (t) => {
+  const server = createServer();
+  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  t.after(async () => new Promise((resolve, reject) => server.close((error) => error ? reject(error) : resolve())));
+  const base = `http://127.0.0.1:${server.address().port}`;
+  const landing = await fetch(`${base}/`);
+  const dashboard = await fetch(`${base}/dashboard`);
+  const heroImage = await fetch(`${base}/images/quiet-morning-mirror-ritual.webp`);
+  const featureImage = await fetch(`${base}/images/sunlit-journaling-still-life.webp`);
+  const dashboardImage = await fetch(`${base}/images/cozy-self-care-journaling-moment.webp`);
+  assert.equal(landing.status, 200);
+  const landingHtml = await landing.text();
+  assert.match(landingHtml, /Your skin has a story/);
+  assert.match(landingHtml, /quiet-morning-mirror-ritual\.webp/);
+  assert.match(landingHtml, /sunlit-journaling-still-life\.webp/);
+  assert.equal(dashboard.status, 200);
+  const dashboardHtml = await dashboard.text();
+  assert.match(dashboardHtml, /No case files yet/);
+  assert.match(dashboardHtml, /cozy-self-care-journaling-moment\.webp/);
+  for (const image of [heroImage, featureImage, dashboardImage]) {
+    assert.equal(image.status, 200);
+    assert.match(image.headers.get('content-type'), /image\/webp/);
+  }
+});

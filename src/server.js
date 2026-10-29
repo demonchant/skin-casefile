@@ -17,6 +17,10 @@ const MIME_TYPES = {
   '.css': 'text/css; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
   '.svg': 'image/svg+xml',
+  '.webp': 'image/webp',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
 };
 const MAX_IMAGE_BYTES = 10 * 1024 * 1024;
 const MAX_SCAN_ATTEMPTS_PER_DAY = 10;
@@ -85,7 +89,7 @@ function safeError(error) {
 
 async function serveFile(request, response, pathname) {
   const decoded = decodeURIComponent(pathname);
-  const requested = decoded === '/' ? 'index.html' : decoded.slice(1);
+  const requested = decoded === '/' ? 'index.html' : decoded === '/dashboard' ? 'dashboard.html' : decoded.slice(1);
   const resolved = path.resolve(WEB_ROOT, requested);
   if (!resolved.startsWith(`${WEB_ROOT}${path.sep}`)) {
     sendJson(response, 404, { error: 'Not found.' });

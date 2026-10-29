@@ -1,0 +1,11 @@
+.hero-visual{isolation:isolate}
+.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:59% 44%;display:block}
+.hero-visual:after{z-index:1;background:linear-gradient(90deg,#263c2510 0%,#ffffff00 45%,#1f2e1c15 100%),linear-gradient(0deg,#263c2544 0%,transparent 30%)}
+.hero-visual-label,.hero-visual-note{z-index:2}
+.feature-visual{isolation:isolate}
+.feature-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 53%;display:block}
+.feature-caption{padding:9px 12px;background:#243b2dcc;left:14px;bottom:14px}
+.welcome-art{width:min(520px,100%);max-width:520px;height:320px;align-self:stretch;overflow:hidden;margin:14px 0 0}
+.dashboard-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center 48%;border:1px solid #d7d3c8}
+@media(max-width:850px){.welcome-art{height:280px}}
+@media(max-width:620px){.welcome-art{width:100%;height:230px}.hero-photo{object-position:57% 43%}.feature-photo{object-position:center 55%}}

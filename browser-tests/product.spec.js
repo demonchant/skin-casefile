@@ -44,9 +44,18 @@ function syntheticPng() {
 }
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('/');
+  await page.goto('/dashboard');
   await page.evaluate(() => localStorage.clear());
   await page.reload();
+});
+
+test('landing page explains the product and routes into the separate casebook', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: /Your skin has a story/ })).toBeVisible();
+  await expect(page.getByText(/not a diagnosis or a product verdict/)).toBeVisible();
+  await page.getByRole('link', { name: /Open your casebook/ }).click();
+  await expect(page).toHaveURL(/\/dashboard$/);
+  await expect(page.getByRole('heading', { name: 'No case files yet' })).toBeVisible();
 });
 
 test('first visit shows a genuine empty state and privacy disclosure', async ({ page }) => {
