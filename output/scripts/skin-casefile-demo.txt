@@ -1,0 +1,11 @@
+﻿When your skin changes, it can be hard to remember what came before: when it started, what you tried, or how it looked a few days ago.
+
+Skin Casefile keeps that context together. Start a case in your own words, add a routine change you remember, and record a photo for analysis.
+
+With your consent, the photo goes to YouCam through its File API and Skin Analysis API. The app waits for the provider's response, then adds four returned readings to your dated case.
+
+Here, two real check-ins let you review how the readings changed over time. The timeline keeps each entry and your note together. A score can support your record, but it cannot diagnose you or explain what caused a change.
+
+The print summary brings your observations and measurements into a clear document for a conversation with a skincare professional.
+
+Skin Casefile. Keep the context with the change.

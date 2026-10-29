@@ -6,9 +6,21 @@
 /.repo-meta/
 /docs/
 /evidence/
+/video_work/
+/output/.video-work/
+/output/analysis/
+/output/reports/caption-sample*.png
+/output/reports/final-middle-check.jpg
+/output/reports/print-preview-*.png
+/output/reports/source-timeline.jpg
+/output/reports/timeline-final.png
+/output/edit_plans/__pycache__/
 /Quiet Morning Mirror Ritual.png
 /Sunlit Journaling Still Life.png
 /Cozy Self-Care Journaling Moment.png
+/Natural Beauty Studio Portrait.png
+/video.mp4
+/demo-input/
 node_modules/
 coverage/
 playwright-report/
@@ -16,4 +28,6 @@ test-results/
 *.log
 .DS_Store
 Thumbs.db
-
+/number 2.png
+/screenshots/.headless-profile/
+/screenshots/03-youcam-analysis-result.png

@@ -1,0 +1,24 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Arial,28,&H00FFFFFF,&H0000FFFF,&HAA35493D,&HAA35493D,0,0,0,0,100,100,0,0,3,1,0,2,90,90,28,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.10,0:00:09.27,Default,,0,0,28,,When your skin changes, it can be hard to remember what came before: when it started, what you tried, or how it looked a few days ago.
+Dialogue: 0,0:00:09.22,0:00:12.73,Default,,0,0,28,,Skin Casefile keeps that context together.
+Dialogue: 0,0:00:12.73,0:00:19.84,Default,,0,0,28,,Start a case in your own words, add a routine change you remember, and record a photo for analysis.
+Dialogue: 0,0:00:19.84,0:00:26.08,Default,,0,0,28,,With your consent, the photo goes to YouCam through its File API and Skin Analysis API.
+Dialogue: 0,0:00:26.08,0:00:32.29,Default,,0,0,28,,The app waits for the provider's response, then adds four returned readings to your dated case.
+Dialogue: 0,0:00:32.29,0:00:37.37,Default,,0,0,28,,Here, two real check-ins let you review how the readings changed over time.
+Dialogue: 0,0:00:37.37,0:00:40.91,Default,,0,0,28,,The timeline keeps each entry and your note together.
+Dialogue: 0,0:00:40.91,0:00:47.15,Default,,0,0,28,,A score can support your record, but it cannot diagnose you or explain what caused a change.
+Dialogue: 0,0:00:47.15,0:00:54.16,Default,,0,0,28,,The print summary brings your observations and measurements into a clear document for a conversation with a skincare professional.
+Dialogue: 0,0:00:54.16,0:00:56.09,Default,,0,0,28,,Skin Casefile.
+Dialogue: 0,0:00:56.09,0:00:58.63,Default,,0,0,28,,Keep the context with the change.

@@ -1,0 +1,43 @@
+1
+00:00:00,100 --> 00:00:09,276
+When your skin changes, it can be hard to remember what came before: when it started, what you tried, or how it looked a few days ago.
+
+2
+00:00:09,226 --> 00:00:12,731
+Skin Casefile keeps that context together.
+
+3
+00:00:12,731 --> 00:00:19,845
+Start a case in your own words, add a routine change you remember, and record a photo for analysis.
+
+4
+00:00:19,845 --> 00:00:26,082
+With your consent, the photo goes to YouCam through its File API and Skin Analysis API.
+
+5
+00:00:26,082 --> 00:00:32,293
+The app waits for the provider's response, then adds four returned readings to your dated case.
+
+6
+00:00:32,293 --> 00:00:37,371
+Here, two real check-ins let you review how the readings changed over time.
+
+7
+00:00:37,371 --> 00:00:40,914
+The timeline keeps each entry and your note together.
+
+8
+00:00:40,914 --> 00:00:47,152
+A score can support your record, but it cannot diagnose you or explain what caused a change.
+
+9
+00:00:47,152 --> 00:00:54,162
+The print summary brings your observations and measurements into a clear document for a conversation with a skincare professional.
+
+10
+00:00:54,162 --> 00:00:56,094
+Skin Casefile.
+
+11
+00:00:56,094 --> 00:00:58,634
+Keep the context with the change.
